@@ -1,0 +1,32 @@
+---
+import { languages } from "../i18n/ui";
+import { getRouteFromUrl, useTranslatedPath, getLangFromUrl } from "../i18n/utils";
+
+import indoFlag from "@/assets/icons/id.png";
+import ukFlag from "@/assets/icons/eng.png";
+
+const route = getRouteFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+---
+
+<a href={translatePath(`/${route ? route : ""}`, lang === "id" ? "en" : "id")}>
+  <button
+    class='bg-[#1B486588] rounded-full p-1 w-14 h-8 flex items-center transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-900'
+    aria-label={`Switch to ${lang === "id" ? "Indonesia" : "English"} lang`}
+  >
+    <div
+      class={`bg-[#33415C] w-8 h-6 rounded-full shadow-md transform transition-transform duration-300 flex justify-center ${
+        lang === "id" ? "translate-x-4" : ""
+      }`}
+    >
+      {
+        lang === "id" ? (
+          <img src={indoFlag.src} class='h-4 m-1' alt='Bahasa Indonesia' />
+        ) : (
+          <img src={ukFlag.src} class='h-4 m-1' alt='English' />
+        )
+      }
+    </div>
+  </button>
+</a>

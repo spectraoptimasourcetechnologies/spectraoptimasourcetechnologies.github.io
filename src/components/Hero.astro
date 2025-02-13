@@ -1,0 +1,22 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { Button } from "./ui/button";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div
+  class={`min-h-screen md:bg-[url('/img/heroBg.png')] bg-[url('/img/heroMobBg.png')] bg-cover bg-bottom md:bg-center bg-no-repeat text-white flex md:items-center max-md:pt-24 p-4`}
+>
+  <div class='md:grid grid-cols-12 container mx-auto'>
+    <div class='w-5/6 max-md:text-center max-md:mx-auto col-span-6'>
+      <p class='md:text-3xl text-base max-md:max-w-64 max-md:mx-auto'>{t("home.hero")}</p>
+      <a href='#contactus'>
+        <Button className='bg-input hover:bg-input/50 text-white md:text-xl text-xs mt-6 md:py-6' size={"lg"}>
+          {t("home.cta")}
+        </Button>
+      </a>
+    </div>
+  </div>
+</div>

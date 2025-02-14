@@ -1,14 +1,32 @@
 ---
+import { Image } from "astro:assets";
+
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
 import { Button } from "./ui/button";
+
+import heroBg from "@/assets/img/heroBg.png";
+import heroBgMob from "@/assets/img/heroMobBg.png";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div
-  class={`min-h-screen md:bg-[url('/img/heroBg.png')] bg-[url('/img/heroMobBg.png')] bg-cover bg-bottom md:bg-center bg-no-repeat text-white flex md:items-center max-md:pt-24 p-4`}
->
+<div class={`min-h-screen bg-cover bg-bottom md:bg-center bg-no-repeat text-white flex md:items-center max-md:pt-24 p-4 relative`}>
+  <Image
+    width={1440}
+    height={810}
+    alt={"hero Image"}
+    src={heroBg}
+    class='absolute top-0 right-0 h-full w-full bg-cover object-cover -z-10 max-md:hidden'
+  />
+  <Image
+    width={390}
+    height={420}
+    alt={"hero Image"}
+    src={heroBgMob}
+    class='absolute top-0 right-0 h-full w-full bg-cover object-cover -z-10 md:hidden'
+  />
   <div class='md:grid grid-cols-12 container mx-auto'>
     <div class='w-5/6 max-md:text-center max-md:mx-auto col-span-6'>
       <p class='md:text-3xl text-base max-md:max-w-64 max-md:mx-auto'>{t("home.hero")}</p>

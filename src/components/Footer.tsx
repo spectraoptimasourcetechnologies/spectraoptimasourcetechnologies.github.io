@@ -10,14 +10,17 @@ import sosLogo from "@/assets/logo-sos-1.png";
 import dialogIcon from "@/assets/icons/ask mob.png";
 
 import contact from "@/constant/constact";
+import { useTranslations } from "@/i18n/utils";
 
 interface FooterProps {
-  t: any;
+  lang: any;
 }
 
-const Footer: React.FC<FooterProps> = ({ t }) => {
+const Footer: React.FC<FooterProps> = ({ lang }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSuccessMessageOpen, setIsSuccessMessageOpen] = useState(false);
+
+  const t = useTranslations(lang);
 
   return (
     <div className='bg-[#0C1921] text-white px-4 md:py-24 py-12 w-full shadow-md'>

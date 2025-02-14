@@ -12,51 +12,53 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class='md:py-24 py-12 px-4 mx-auto container'>
-  <h2 class='md:text-5xl text-xl md:mb-24 text-center mb-12'>{t("ourService")}</h2>
-  <div class='grid grid-cols-2 gap-x-8 gap-y-16 max-md:hidden items-center'>
-    <div class='flex flex-col gap-16'>
-      <div class='border-primary pb-4 border-b'>
-        <h3 class='text-3xl mb-2'>{t("IT Consulting")}</h3>
-        <p class='text-xl'>{t("IT Consulting Detail")}</p>
+<div class='md:py-24 py-12 px-4'>
+  <div class='mx-auto container'>
+    <h2 class='md:text-5xl text-xl md:mb-24 text-center mb-12'>{t("ourService")}</h2>
+    <div class='grid grid-cols-2 gap-x-8 gap-y-16 max-md:hidden items-center'>
+      <div class='flex flex-col gap-16'>
+        <div class='border-primary pb-4 border-b'>
+          <h3 class='text-3xl mb-2'>{t("IT Consulting")}</h3>
+          <p class='text-xl'>{t("IT Consulting Detail")}</p>
+        </div>
+        <div class='border-primary pb-4 border-b'>
+          <h3 class='text-3xl mb-2'>{t("Application Testing")}</h3>
+          <p class='text-xl'>{t("Application Testing Detail")}</p>
+        </div>
+        <div class='border-primary pb-4 border-b'>
+          <h3 class='text-3xl mb-2'>{t("UI / UX Design")}</h3>
+          <p class='text-xl'>{t("UI / UX Design Detail")}</p>
+        </div>
       </div>
-      <div class='border-primary pb-4 border-b'>
-        <h3 class='text-3xl mb-2'>{t("Application Testing")}</h3>
-        <p class='text-xl'>{t("Application Testing Detail")}</p>
+      <div>
+        <CarouselService picList={uiPicList} client:visible />
       </div>
-      <div class='border-primary pb-4 border-b'>
-        <h3 class='text-3xl mb-2'>{t("UI / UX Design")}</h3>
-        <p class='text-xl'>{t("UI / UX Design Detail")}</p>
+      <div>
+        <CarouselService picList={devPicList} client:visible />
+      </div>
+      <div class='flex flex-col gap-16 pl-12'>
+        <div class='border-primary pb-4 border-b'>
+          <h3 class='text-3xl mb-2'>{t("Web Development")}</h3>
+          <p class='text-xl'>{t("Web Development Detail")}</p>
+        </div>
+        <div class='border-primary pb-4 border-b'>
+          <h3 class='text-3xl mb-2'>{t("Mobile Development")}</h3>
+          <p class='text-xl'>{t("Mobile Development Detail")}</p>
+        </div>
+        <div class='mt-16 italic'>
+          <a href='#contactus'> {t("moreDetail")}</a>
+        </div>
       </div>
     </div>
-    <div>
-      <CarouselService picList={uiPicList} client:visible />
-    </div>
-    <div>
-      <CarouselService picList={devPicList} client:visible />
-    </div>
-    <div class='flex flex-col gap-16 pl-12'>
-      <div class='border-primary pb-4 border-b'>
-        <h3 class='text-3xl mb-2'>{t("Web Development")}</h3>
-        <p class='text-xl'>{t("Web Development Detail")}</p>
+    <div class='md:hidden mx-4'>
+      <CarouselService picList={allicList} client:visible />
+      <div class='flex justify-evenly flex-wrap mt-12 gap-4 text-center'>
+        <h3>{t("IT Consulting")}</h3>
+        <h3>{t("Application Testing")}</h3>
+        <h3>{t("UI / UX Design")}</h3>
+        <h3>{t("Web Development")}</h3>
+        <h3>{t("Mobile Development")}</h3>
       </div>
-      <div class='border-primary pb-4 border-b'>
-        <h3 class='text-3xl mb-2'>{t("Mobile Development")}</h3>
-        <p class='text-xl'>{t("Mobile Development Detail")}</p>
-      </div>
-      <div class='mt-16 italic'>
-        <a href='#contactus'> {t("moreDetail")}</a>
-      </div>
-    </div>
-  </div>
-  <div class='md:hidden mx-4'>
-    <CarouselService picList={allicList} client:visible />
-    <div class='flex justify-evenly flex-wrap mt-12 gap-4 text-center'>
-      <h3>{t("IT Consulting")}</h3>
-      <h3>{t("Application Testing")}</h3>
-      <h3>{t("UI / UX Design")}</h3>
-      <h3>{t("Web Development")}</h3>
-      <h3>{t("Mobile Development")}</h3>
     </div>
   </div>
 </div>

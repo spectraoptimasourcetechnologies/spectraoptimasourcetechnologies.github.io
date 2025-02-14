@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+import bgBintang from "@/assets/img/abt bintang bg.png";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class='md:pt-48 pt-24 md:pb-24 pb-8 px-4'>
+  <div class='container mx-auto grid grid-cols-3'>
+    <p class='md:text-5xl text-xl max-md:w-24'>{t("nav.about")}</p>
+    <p class='col-span-2 md:text-lg text-justify'>{t("aboutUsDetail")}</p>
+  </div>
+</div>
+<div class='px-4 relative'>
+  <Image
+    src={bgBintang}
+    width={1440}
+    height={834}
+    alt={"Landing"}
+    class='absolute top-0 right-0 w-full h-full -z-10 object-cover object-top'
+  />
+  {
+    /* <Canvas class='!sticky top-24 -mb-8 md:-mb-20 md:!h-80 !h-32 2xl:!h-96 z-0'>
+          <Environment preset='city' />
+          <directionalLight intensity={3} position={[5, 1, 2]} />
+          <Model />
+        </Canvas> */
+  }
+  <div class='container mx-auto md:pt-56 md:pb-24 pt-32 pb-12 z-10 relative'>
+    <div class='grid max-md:grid-cols-10 grid-cols-2 text-white'>
+      <div class='max-md:col-span-7'>
+        <h2 class='md:text-5xl text-xl'>{t("ourVision")}</h2>
+        <p class='md:text-2xl md:mt-8 mt-2 text-justify text-sm'>{t("ourVisionDetail")}</p>
+      </div>
+      <div class='max-md:col-span-3'></div>
+      <div class='max-md:col-span-3'></div>
+      <div class='md:mt-12 mt-8 max-md:col-span-7'>
+        <h2 class='md:text-5xl text-xl'>{t("ourMision")}</h2>
+        <p class='md:text-2xl md:mt-8 mt-2 text-justify text-sm'>{t("ourMisionDetail")}</p>
+      </div>
+    </div>
+  </div>
+</div>

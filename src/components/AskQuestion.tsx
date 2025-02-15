@@ -36,11 +36,16 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ closeDialog, setIsSuccessMess
     askFormData.append(import.meta.env.VITE_FORM_FIELD_QUESTION, data.question);
 
     try {
-      await fetch(import.meta.env.VITE_FORM_URL, {
+      const res = await fetch(import.meta.env.VITE_FORM_URL, {
         method: "POST",
         mode: "no-cors",
         body: askFormData,
       });
+      console.log(res);
+      if (res.ok === false) {
+        throw console.error("gagal coy");
+      }
+
       reset();
       if (closeDialog) {
         closeDialog();

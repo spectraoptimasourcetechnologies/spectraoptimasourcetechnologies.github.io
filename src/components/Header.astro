@@ -5,6 +5,7 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 
 import sosLogo from "@/assets/logo-sos.png";
 import LanguagePicker from "./LanguagePicker.astro";
+import MenuMob from "./MenuMob";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -30,5 +31,6 @@ const translatePath = useTranslatedPath(lang);
       <LanguagePicker />
       <ThemeToggle />
     </div>
+    <MenuMob lang={lang} client:load />
   </nav>
 </header>

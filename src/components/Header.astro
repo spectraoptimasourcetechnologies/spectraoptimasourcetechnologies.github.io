@@ -12,7 +12,7 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<header class='bg-[#0C1921] text-white px-4 py-2 fixed w-full top-0 shadow-md z-50'>
+<header class='bg-[#0C1921] text-white md:px-4 py-2 fixed w-full top-0 shadow-md z-50'>
   <nav class='container mx-auto grid grid-cols-3 items-center max-md:flex max-md:gap-2'>
     <div class='max-md:hidden'>
       <a href={translatePath("/")} class={"opacity-60 pr-6 py-2"}>
@@ -24,7 +24,7 @@ const translatePath = useTranslatedPath(lang);
     </div>
     <div class='justify-self-center'>
       <a href={translatePath("/")} class='cursor-pointer'>
-        <img src={sosLogo.src} alt='Logo SOS' class='h-16 max-md:h-12' />
+        <img src={sosLogo.src} alt='Logo SOS' class='h-16 max-md:h-10 my-2 object-contain' />
       </a>
     </div>
     <div class='justify-items-end flex gap-10 justify-end max-md:gap-2 flex-1'>

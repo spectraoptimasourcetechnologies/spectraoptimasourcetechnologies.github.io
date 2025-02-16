@@ -10,13 +10,13 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class='md:pt-48 pt-24 md:pb-24 pb-8 px-4'>
+<div class='md:pt-48 pt-24 md:pb-24 pb-8 md:px-4'>
   <div class='container mx-auto grid grid-cols-3'>
-    <p class='md:text-5xl text-xl max-md:w-24'>{t("nav.about")}</p>
-    <p class='col-span-2 md:text-lg text-justify'>{t("aboutUsDetail")}</p>
+    <h1 class='md:text-5xl text-xl max-md:w-24'>{t("nav.about")}</h1>
+    <p class='col-span-2 md:text-lg text-justify text-sm'>{t("aboutUsDetail")}</p>
   </div>
 </div>
-<div class='px-4 relative'>
+<div class='md:px-4 relative'>
   <Image
     src={bgBintang}
     width={1440}

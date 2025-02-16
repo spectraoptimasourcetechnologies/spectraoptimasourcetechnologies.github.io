@@ -5,7 +5,7 @@ const { url, name, role } = Astro.props;
 ---
 
 <div class='flex flex-col items-center gap-2'>
-  <Image src={url} alt={name} class='md:h-72 md:w-72 h-44 w-44 sm:h-24 sm:w-24 rounded-full object-cover' />
+  <Image src={url} alt={name} class='md:h-72 md:w-72 h-44 w-44 sm:h-36 sm:w-36 rounded-full object-cover' />
   <p class='font-semibold mt-4 max-md:text-sm'>{name}</p>
   <p class='max-md:text-xs'>{role}</p>
 </div>

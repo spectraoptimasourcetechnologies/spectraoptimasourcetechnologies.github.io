@@ -15,8 +15,8 @@ const MenuMob: React.FC<MenuMobProps> = ({ lang }) => {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger className='p-2 md:hidden'>
-        <img src={burger.src} alt='burger' className='h-4/5' />
+      <SheetTrigger className='p-2 md:hidden hover:opacity-75'>
+        <img src={burger.src} alt='burger' />
       </SheetTrigger>
       <SheetContent side={"top"}>
         <SheetHeader>

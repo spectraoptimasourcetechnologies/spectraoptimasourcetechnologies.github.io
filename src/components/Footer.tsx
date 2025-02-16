@@ -23,18 +23,18 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
   const t = useTranslations(lang);
 
   return (
-    <div className='bg-[#0C1921] text-white px-4 md:py-24 py-12 w-full shadow-md'>
+    <div className='bg-[#0C1921] text-white md:px-4 md:py-24 py-12 w-full shadow-md'>
       <div className='container mx-auto grid md:grid-cols-3 grid-cols-2 gap-4'>
-        <img src={sosLogo.src} alt='Logo SOS' className='md:w-5/6 w-full' />
-        <div>
+        <img src={sosLogo.src} alt='Logo SOS' className='md:w-5/6 w-full max-md:max-w-36' />
+        <div className='flex flex-col gap-4 items-start sm:items-end md:items-start'>
           <Button
             variant={"ghost"}
             size={"sm"}
-            className='p-0 mb-4 text-sm md:hidden hover:bg-transparent hover:opacity-80 hover:text-white'
+            className='p-0 text-sm md:hidden hover:bg-transparent hover:opacity-80 hover:text-white'
             onClick={() => setIsDialogOpen(true)}
           >
             <p>{t("questionTitle")}</p>
-            <img src={dialogIcon.src} alt='Open Dialog' className='w-full' />
+            <img src={dialogIcon.src} alt='Open Dialog' className='' />
           </Button>
 
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -45,7 +45,7 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
               <AskQuestion closeDialog={() => setIsDialogOpen(false)} setIsSuccessMessageOpen={setIsSuccessMessageOpen} t={t} />
             </DialogContent>
           </Dialog>
-          <p className='md:text-3xl text-sm mb-6' id='contactus'>
+          <p className='md:text-3xl text-sm' id='contactus'>
             {t("contactUs")}
           </p>
           <div className='flex gap-1 md:gap-4'>

@@ -45,6 +45,11 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
               <AskQuestion closeDialog={() => setIsDialogOpen(false)} setIsSuccessMessageOpen={setIsSuccessMessageOpen} t={t} />
             </DialogContent>
           </Dialog>
+          <SuccessMessage
+            isSuccessMessageOpen={isSuccessMessageOpen}
+            setIsSuccessMessageOpen={setIsSuccessMessageOpen}
+            message={t("successMessage")}
+          />
           <p className='md:text-3xl text-sm' id='contactus'>
             {t("contactUs")}
           </p>
@@ -63,11 +68,6 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
           <AskQuestion setIsSuccessMessageOpen={setIsSuccessMessageOpen} t={t} />
         </div>
       </div>
-      <SuccessMessage
-        isSuccessMessageOpen={isSuccessMessageOpen}
-        setIsSuccessMessageOpen={setIsSuccessMessageOpen}
-        message={t("successMessage")}
-      />
     </div>
   );
 };

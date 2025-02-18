@@ -6,7 +6,7 @@ const MoonModel = () => {
 
 
   return (
-    <Canvas className='!sticky top-24 -mb-12 md:-mb-20 md:!h-80 !h-56 2xl:!h-96 z-0'>
+    <Canvas className='md:!h-80 !h-56 2xl:!h-96 z-0'>
       <Environment preset='city' />
       <directionalLight intensity={3} position={[5, 1, 2]} />
       <Model />

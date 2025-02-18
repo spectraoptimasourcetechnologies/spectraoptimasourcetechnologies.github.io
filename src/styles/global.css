@@ -166,3 +166,7 @@
     text-rendering: optimizeLegibility;
   }
 }
+
+.container {
+  padding-inline: 1rem;
+}

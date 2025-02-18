@@ -31,28 +31,23 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ closeDialog, setIsSuccessMess
     setIsLoading(true);
 
     let askFormData = new FormData();
-    askFormData.append(import.meta.env.VITE_FORM_FIELD_NAME, data.name);
-    askFormData.append(import.meta.env.VITE_FORM_FIELD_EMAIL, data.email);
-    askFormData.append(import.meta.env.VITE_FORM_FIELD_QUESTION, data.question);
+    askFormData.append(import.meta.env.PUBLIC_FORM_FIELD_NAME, data.name);
+    askFormData.append(import.meta.env.PUBLIC_FORM_FIELD_EMAIL, data.email);
+    askFormData.append(import.meta.env.PUBLIC_FORM_FIELD_QUESTION, data.question);
 
     try {
-      const res = await fetch(import.meta.env.VITE_FORM_URL, {
+      const res = await fetch(import.meta.env.PUBLIC_FORM_URL, {
         method: "POST",
         mode: "no-cors",
         body: askFormData,
       });
-      console.log(res);
-      if (res.ok === false) {
-        throw console.error("gagal coy");
-      }
-
       reset();
       if (closeDialog) {
         closeDialog();
       }
       setIsSuccessMessageOpen(true);
     } catch (error: any) {
-      console.error("Error!", error.message);
+      console.error("Error!", error);
     } finally {
       setIsLoading(false);
     }
@@ -66,6 +61,7 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ closeDialog, setIsSuccessMess
           type='text'
           className='text-white'
           placeholder='Jhon Doe'
+          disabled={isLoading}
           {...register("name", {
             required: t("validateName"),
             pattern: {
@@ -82,6 +78,7 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ closeDialog, setIsSuccessMess
           type='email'
           className='text-white'
           placeholder='jhondoe@email.com'
+          disabled={isLoading}
           {...register("email", {
             required: t("validateEmail"),
             pattern: {
@@ -94,7 +91,12 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ closeDialog, setIsSuccessMess
       </div>
       <div className='mt-4'>
         <Label htmlFor='question'>{t("question")}</Label>
-        <Textarea placeholder={t("hintQuestion")} className='text-white' {...register("question", { required: t("validateQuestion") })} />
+        <Textarea
+          placeholder={t("hintQuestion")}
+          className='text-white'
+          {...register("question", { required: t("validateQuestion") })}
+          disabled={isLoading}
+        />
         {errors.question && <p className='text-red-500 text-xs mt-2'>{errors.question.message}</p>}
       </div>
       <div className='flex gap-4 mt-4'>

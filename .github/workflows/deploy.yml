@@ -26,13 +26,23 @@ concurrency:
 
 env:
   BUILD_PATH: "." # default value when not using subfolders
-  PUBLIC_FORM_URL: "${{ vars.PUBLIC_FORM_URL }}"
-  PUBLIC_FORM_FIELD_NAME: "${{ vars.PUBLIC_FORM_FIELD_NAME }}"
-  PUBLIC_FORM_FIELD_EMAIL: "${{ vars.PUBLIC_FORM_FIELD_EMAIL }}"
-  PUBLIC_FORM_FIELD_QUESTION: "${{ vars.PUBLIC_FORM_FIELD_QUESTION }}"
+  PUBLIC_FORM_URL: ${{ vars.PUBLIC_FORM_URL }}
+  PUBLIC_FORM_FIELD_NAME: ${{ vars.PUBLIC_FORM_FIELD_NAME }}
+  PUBLIC_FORM_FIELD_EMAIL: ${{ vars.PUBLIC_FORM_FIELD_EMAIL }}
+  PUBLIC_FORM_FIELD_QUESTION: ${{ vars.PUBLIC_FORM_FIELD_QUESTION }}
   # BUILD_PATH: subfolder
 
 jobs:
+  display-variables:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Use variables
+      run: |
+        echo "PUBLIC_FORM_URL : ${{ vars.PUBLIC_FORM_URL }}"
+        echo "PUBLIC_FORM_FIELD_NAME : ${{ vars.PUBLIC_FORM_FIELD_NAME }}
+        echo "PUBLIC_FORM_FIELD_EMAIL : ${{ vars.PUBLIC_FORM_FIELD_EMAIL }}
+        echo "PUBLIC_FORM_FIELD_QUESTION : ${{ vars.PUBLIC_FORM_FIELD_QUESTION }}
+
   build:
     name: Build
     runs-on: ubuntu-latest

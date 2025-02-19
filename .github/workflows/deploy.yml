@@ -39,9 +39,9 @@ jobs:
     - name: Use variables
       run: |
         echo "PUBLIC_FORM_URL : ${{ vars.PUBLIC_FORM_URL }}"
-        echo "PUBLIC_FORM_FIELD_NAME : ${{ vars.PUBLIC_FORM_FIELD_NAME }}
-        echo "PUBLIC_FORM_FIELD_EMAIL : ${{ vars.PUBLIC_FORM_FIELD_EMAIL }}
-        echo "PUBLIC_FORM_FIELD_QUESTION : ${{ vars.PUBLIC_FORM_FIELD_QUESTION }}
+        echo "PUBLIC_FORM_FIELD_NAME : ${{ vars.PUBLIC_FORM_FIELD_NAME }}"
+        echo "PUBLIC_FORM_FIELD_EMAIL : ${{ vars.PUBLIC_FORM_FIELD_EMAIL }}"
+        echo "PUBLIC_FORM_FIELD_QUESTION : ${{ vars.PUBLIC_FORM_FIELD_QUESTION }}"
 
   build:
     name: Build

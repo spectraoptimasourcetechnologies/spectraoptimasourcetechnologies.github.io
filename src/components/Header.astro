@@ -7,7 +7,9 @@ import sosLogo from "@/assets/logo-sos.png";
 import LanguagePicker from "./LanguagePicker.astro";
 import MenuMob from "./MenuMob";
 
-const lang = getLangFromUrl(Astro.url);
+const url = Astro.url;
+
+const lang = getLangFromUrl(url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
@@ -15,10 +17,16 @@ const translatePath = useTranslatedPath(lang);
 <header class='bg-[#0C1921] text-white md:px-4 py-2 fixed w-full top-0 shadow-md z-50'>
   <nav class='container mx-auto grid grid-cols-3 items-center max-md:flex max-md:gap-2'>
     <div class='max-md:hidden'>
-      <a href={translatePath("/")} class={"opacity-60 pr-6 py-2"}>
+      <a
+        href={translatePath("/")}
+        class={`${url.pathname.includes("about") || url.pathname.includes("tentang") ? "opacity-60" : ""} pr-6 py-2`}
+      >
         {t("nav.home")}
       </a>
-      <a href={translatePath("/about")} class={"px-6 py-2"}>
+      <a
+        href={translatePath("/about")}
+        class={`${url.pathname.includes("about") || url.pathname.includes("tentang") ? "" : "opacity-60"} px-6 py-2`}
+      >
         {t("nav.about")}
       </a>
     </div>
